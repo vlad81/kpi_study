@@ -12,6 +12,9 @@ int main () {
      pthread_t thread_id_4;
      pthread_t thread_id_5;
      pthread_t thread_id_6;
+
+     // sem_init(&sem1,0,1);
+     // sem_init(&sem2,0,1);
      
      pthread_create(&thread_id_1,NULL,&thread_1_func,NULL);
      pthread_create(&thread_id_2,NULL,&thread_2_func,NULL);

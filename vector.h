@@ -1,19 +1,20 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#pragma once
+#include<stdlib.h>
 
-struct {
+typedef struct VECT {
      int elem;
-     struct * next;     
-}vect;
+     struct VECT* next;    
+} vect;
 
-vect* beg = NULL;
 
-int* pop();
+int pop();
 
-void push(int*);
+void push(int);
 
 int is_full();
 
 int is_empty();
 
-#endif
+int get_size();
+
+vect* get_beg();

@@ -2,8 +2,8 @@
 
 vect* stack = NULL;
 
-int min_size = 0;
-int max_size = 100;
+int minSize = 0;
+int maxSize = 100;
 int size = 0;
 
 vect* get_beg() {

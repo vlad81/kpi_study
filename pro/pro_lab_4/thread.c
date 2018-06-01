@@ -21,6 +21,7 @@ void* thread_1_func(int* arg){
      at_1 = 1;
      at_1 = __sync_fetch_and_sub (&at_1,1);
      fprintf(f,"Modification of at_1 : %d\n",at_1);
+     
      at_4 = 4;
      fprintf(f,"Modification of at_4 : %d\n",__sync_fetch_and_sub (&at_4,1));
      
@@ -38,12 +39,12 @@ void* thread_1_func(int* arg){
           fprintf(f,"thread_1_func works after semaphore sem1\n");
           ////////////////////////////////////////////////////////
 
-          pthread_mutex_lock(&mut_s);
+           pthread_mutex_lock(&mut_s);
           pthread_cond_broadcast (&sig_21);
           pthread_mutex_unlock(&mut_s);
 
           fprintf(f,"thread_1_func send sig_21\n");
-
+          
           at_2 = 2;
           fprintf(f,"Before modification at_2 = %d\n",at_2);
           fprintf(f,"Modification of at_2 : %d\n",__sync_sub_and_fetch (&at_2, 1));
@@ -63,14 +64,13 @@ void* thread_1_func(int* arg){
 void* thread_2_func(int* arg){
 
      int num = *(int*)arg;
-     
+      
      while (1) {
 
           fprintf(f,"thread_2_func wait sig_21\n");
-
-           pthread_mutex_lock(&mut_s);
-           pthread_cond_wait (&sig_21,&mut_s);
-           pthread_mutex_unlock(&mut_s);
+ pthread_mutex_lock(&mut_s);
+          pthread_cond_wait (&sig_21,&mut_s);
+          pthread_mutex_unlock(&mut_s);
 
           fprintf(f,"thread_2_func woks after getting sig_21\n");
            __sync_fetch_and_and (&at_1, 2);
@@ -146,7 +146,7 @@ void* thread_4_func(int* arg){
      at_7 = 7;
      __sync_and_and_fetch (&at_7, 7);
      fprintf(f,"Modification of at_7 : %li\n",__sync_and_and_fetch (&at_7, 7));
-      
+     while(1){
      ///////////////////////full sync with p1(semaphore)////
      fprintf(f,"\nthread_4_func opens semaphore sem1 for the thread_1_func\n");
 
@@ -161,7 +161,7 @@ void* thread_4_func(int* arg){
      fprintf(f,"\nthread_4_func works after semaphore sem2\n");
      /////////////////////////////////////////////////////////
 
-     pthread_mutex_lock(&mut_s);
+      pthread_mutex_lock(&mut_s);
      pthread_cond_broadcast (&sig_21);
      pthread_mutex_unlock(&mut_s);
      
@@ -178,7 +178,7 @@ void* thread_4_func(int* arg){
      __sync_sub_and_fetch (&at_8, 3);
      fprintf(f,"Modification of at_8 : %li\n",__sync_sub_and_fetch (&at_8, 3));
       fprintf(f,"After modification at_8 = %li\n",at_8);
-  
+     }
      return NULL;
      
 }
@@ -186,19 +186,19 @@ void* thread_4_func(int* arg){
 //producer for cr1
 void* thread_5_func(int* arg){
      int num = *(int*)arg;
-     
+     //pthread_mutex_lock(&mut_s);
      while (1) {
 
-          fprintf(f,"thread_2_func wait sig_21\n");
+          fprintf(f,"thread_5_func wait sig_21\n");
      
-          // pthread_mutex_lock(&mut_s);
-          //pthread_cond_wait (&sig_21,&mut_s);
-          // pthread_mutex_unlock(&mut_s);
+          pthread_mutex_lock(&mut_s);
+           pthread_cond_wait (&sig_21,&mut_s);
+           pthread_mutex_unlock(&mut_s);
 
-          fprintf(f,"thread_2_func woks after getting sig_21\n");
+          fprintf(f,"thread_5_func woks after getting sig_21\n");
 
           __sync_fetch_and_and (&at_6, 2);
-          fprintf(f,"Modification of at_6 : %li\n",__sync_fetch_and_and (&at_6, 2));
+          fprintf(f,"T5 : mication of at_6 : %li\n",__sync_fetch_and_and (&at_6, 2));
         
           pthread_mutex_lock (&mut);
 

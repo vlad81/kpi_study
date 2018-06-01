@@ -13,7 +13,7 @@ int main () {
 
        int thread1_number=1;
        int thread2_number=2;
-       int thread3_number=3;xf
+       int thread3_number=3;
        int thread4_number=4;
        int thread5_number=5;
        int thread6_number=6;

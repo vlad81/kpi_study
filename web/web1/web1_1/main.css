@@ -1,0 +1,160 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+    height: 1000px;
+    width: 100%;
+	background:#DCDCDC;
+	margin: auto;
+	border: 1 px solid black;
+}
+
+#header {
+    height: 50px;
+	margin-top: 20px;
+	margin-left: 60px;
+    float: left;
+    text-transform: uppercase;
+    font-size: 3em
+}
+
+
+#nav {
+    height: 50px;
+    float: right;  
+}
+
+#nav ul {
+    margin: 0 auto;
+    font-size: medium;
+    padding: 3px 0 0 0;
+    border-top: 2px dotted #AFAFAF;
+    border-bottom:2px dotted #AFAFAF;
+    text-align: center;
+    width: 100%
+}
+
+ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 4px 0;
+    display: inline;
+}
+
+#nav ul li a {
+    padding: 0 20px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#nav ul li a:hover, #nav ul li a.active {
+    color: red;
+}
+
+
+#content {
+    height: 450px;
+}
+
+#inform {
+    margin-left: 30px;
+    float:left;
+    display: inline;
+    width:650px;
+}
+
+#inform-picture {
+    width: 300px;
+    float: left;
+}
+
+#inform-text {
+    width: 300px;
+    float:right;
+}
+
+
+#ad-block {
+    float: right;
+    margin-right: 30px;
+}
+
+#top-panel {
+    height: 100px;
+}
+
+#contact {
+    float: right;
+    margin-right: 40px;
+}
+
+#bio-block {
+    height: 1000px;
+     width: 100%;
+    background:#DCDCDC;
+    margin: auto;
+    border: 1 px solid black;
+}
+
+#about-subject-block {
+    height: 1000px;
+     width: 100%;
+    background:#DCDCDC;
+    margin: auto;
+    border: 1 px solid black;
+}
+
+#schedule-block {
+    height: 1000px;
+     width: 100%;
+    background:#DCDCDC;
+    margin: auto;
+    border: 1 px solid black;
+}
+
+#bio-text {
+    float: left;
+    width :50%;
+}
+
+#ab-text {
+    width :100%;
+}
+
+#pict1 {
+    float: right;
+    width : 45%;
+}
+
+
+#bio-text-head-1 {
+    height :50px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#bio-text-body-1 {
+    height: 90px;
+}
+
+#schedule-picture {
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+#sc_pub {
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+#table {
+    border : solid 1px;
+}
+
+#table td, #table tr, #table th{
+    border: solid 1px;
+}
